@@ -1,0 +1,5 @@
+<h3 *ngIf="!todos?.length">No todos</h3>
+
+<mat-accordion *ngIf="todos?.length">
+  <app-todo *ngFor="let todo of todos; let i = index" [todo]="todo" (remove)="remove.emit(i)"></app-todo>
+</mat-accordion>

@@ -1,0 +1,11 @@
+<mat-expansion-panel displayMode="flat">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{ todo.title }}</mat-panel-title>
+  </mat-expansion-panel-header>
+
+  {{ todo.description }}
+
+  <mat-action-row>
+    <button mat-flat-button (click)="remove.emit()" color="primary">Complete</button>
+  </mat-action-row>
+</mat-expansion-panel>

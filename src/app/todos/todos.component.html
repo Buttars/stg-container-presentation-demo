@@ -6,18 +6,4 @@
 </section>
 
 <mat-divider></mat-divider>
-<h3 *ngIf="!todos?.length">No todos</h3>
-
-<mat-accordion *ngIf="todos?.length">
-  <mat-expansion-panel *ngFor="let todo of todos; let i = index" displayMode="flat">
-    <mat-expansion-panel-header>
-      <mat-panel-title>{{ todo.title }}</mat-panel-title>
-    </mat-expansion-panel-header>
-
-    {{ todo.description }}
-
-    <mat-action-row>
-      <button mat-flat-button (click)="remove(i)" color="primary">Complete</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
+<app-todo-list [todos]="todos$ | async" (remove)="remove($event)"></app-todo-list>

@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[];
+  todos$: Observable<Todo[]>;
 
   constructor(private todosService: TodosService) {
-    this.todosService.todos$.subscribe(todos => (this.todos = todos));
+    this.todos$ = this.todosService.todos$;
   }
 
   ngOnInit() {}
